@@ -1,15 +1,40 @@
 <?php
 defined('ABSPATH') || exit;
 
+if (class_exists('UWP_CT_Condition')) {
+    return;
+}
+
 if (!class_exists('CUW\App\Modules\Conditions\Base')) {
     return;
 }
 
-class UWP_CT_Condition extends \CUW\App\Modules\Conditions\Base {
+class UWP_CT_Condition extends \CUW\App\Modules\Conditions\Base
+{
+    /**
+     * Custom taxonomy slug.
+     *
+     * @var string
+     */
     public $custom_taxonomy = '';
-    public function __construct($custom_taxonomy) {
+
+    /**
+     * Constructor.
+     *
+     * @param string $custom_taxonomy
+     */
+    public function __construct($custom_taxonomy)
+    {
         $this->custom_taxonomy = $custom_taxonomy;
     }
+
+    /**
+     * Check condition.
+     *
+     * @param array $condition
+     * @param array $data
+     * @return false
+     */
     public function check($condition, $data)
     {
         if (!isset($condition['values']) || !isset($condition['method'])) {
@@ -30,8 +55,16 @@ class UWP_CT_Condition extends \CUW\App\Modules\Conditions\Base {
         return self::checkLists($condition['values'], $cuw_product_taxonomies_in_the_cart, $condition['method']);
     }
 
-    public function template($data = [], $print = false) {
-        $key = isset($data['key']) ? (int) $data['key'] : '{key}';
+    /**
+     * Render template.
+     *
+     * @param array $data
+     * @param bool $print
+     * @return false|string
+     */
+    public function template($data = [], $print = false)
+    {
+        $key = isset($data['key']) ? (int)$data['key'] : '{key}';
         $condition = isset($data['condition']) ? $data['condition'] : [];
         $method = isset($condition['method']) && !empty($condition['method']) ? $condition['method'] : '';
         $values = isset($condition['values']) && !empty($condition['values']) ? array_flip($condition['values']) : [];
@@ -48,7 +81,8 @@ class UWP_CT_Condition extends \CUW\App\Modules\Conditions\Base {
         </div>
 
         <div class="condition-values">
-            <select multiple class="select2-list" name="conditions[<?php echo esc_attr($key); ?>][values][]" data-list="taxonomies"
+            <select multiple class="select2-list" name="conditions[<?php echo esc_attr($key); ?>][values][]"
+                    data-list="taxonomies"
                     data-taxonomy="<?php echo esc_attr($this->custom_taxonomy); ?>"
                     data-placeholder=" <?php esc_html_e("Choose taxonomies", 'checkout-upsell-woocommerce'); ?>">
                 <?php foreach ($values as $id => $name) { ?>

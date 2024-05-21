@@ -1,15 +1,40 @@
 <?php
 defined('ABSPATH') || exit;
 
+if (class_exists('UWP_CT_Filter')) {
+    return;
+}
+
 if (!class_exists('CUW\App\Modules\Filters\Base')) {
     return;
 }
 
-class UWP_CT_Filter extends \CUW\App\Modules\Filters\Base {
+class UWP_CT_Filter extends \CUW\App\Modules\Filters\Base
+{
+    /**
+     * Custom taxonomy slug.
+     *
+     * @var string
+     */
     public $custom_taxonomy = '';
-    public function __construct($custom_taxonomy) {
+    
+    /**
+     * Constructor.
+     *
+     * @param string $custom_taxonomy
+     */
+    public function __construct($custom_taxonomy)
+    {
         $this->custom_taxonomy = $custom_taxonomy;
     }
+
+    /**
+     * Check filter.
+     *
+     * @param array $filter
+     * @param array $data
+     * @return false
+     */
     public function check($filter, $data)
     {
         if (!isset($filter['values']) || !isset($filter['method'])) {
@@ -25,8 +50,16 @@ class UWP_CT_Filter extends \CUW\App\Modules\Filters\Base {
         return self::checkLists($filter['values'], $cuw_product_taxonomy, $filter['method']);
     }
 
-    public function template($data = [], $print = false) {
-        $key = isset($data['key']) ? (int) $data['key'] : '{key}';
+    /**
+     * Render template.
+     *
+     * @param array $data
+     * @param bool $print
+     * @return false|string
+     */
+    public function template($data = [], $print = false)
+    {
+        $key = isset($data['key']) ? (int)$data['key'] : '{key}';
         $filter = isset($data['filter']) ? $data['filter'] : [];
         $method = isset($filter['method']) && !empty($filter['method']) ? $filter['method'] : '';
         $values = isset($filter['values']) && !empty($filter['values']) ? array_flip($filter['values']) : [];
@@ -43,7 +76,8 @@ class UWP_CT_Filter extends \CUW\App\Modules\Filters\Base {
         </div>
 
         <div class="filter-values">
-            <select multiple class="select2-list" name="filters[<?php echo esc_attr($key); ?>][values][]" data-list="taxonomies"
+            <select multiple class="select2-list" name="filters[<?php echo esc_attr($key); ?>][values][]"
+                    data-list="taxonomies"
                     data-taxonomy="<?php echo esc_attr($this->custom_taxonomy); ?>"
                     data-placeholder=" <?php esc_html_e("Choose taxonomies", 'checkout-upsell-woocommerce'); ?>">
                 <?php foreach ($values as $id => $name) { ?>
