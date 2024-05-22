@@ -49,7 +49,7 @@ class UWP_GH_Updater
 
         if (!empty($this->authorize_token)) {
             add_filter('upgrader_pre_download', function ($status) {
-                add_filter('http_request_args', [$this, 'addTokenInHeader'], 15, 2);
+                add_filter('http_request_args', [$this, 'addTokenInHeader'], 100, 2);
                 return $status; // upgrader_pre_download filter default return value
             });
         }
@@ -165,7 +165,7 @@ class UWP_GH_Updater
                 $args = array_merge($args, array('headers' => array('Authorization' => "token {$this->authorize_token}")));
             }
         }
-        remove_filter('http_request_args', [$this, 'addTokenInHeader']);
+        remove_filter('http_request_args', [$this, 'addTokenInHeader'], 100);
         return $args;
     }
 
