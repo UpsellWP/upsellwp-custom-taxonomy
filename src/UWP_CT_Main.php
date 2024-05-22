@@ -25,7 +25,7 @@ class UWP_CT_Main
         include UWP_CT_PLUGIN_PATH . 'src/UWP_CT_Filter.php';
         if (class_exists('UWP_CT_Filter')) {
             foreach (self::getCustomTaxonomies() as $slug => $taxonomy) {
-                $filters[$slug] = [
+                $filters['tax_' . $slug] = [
                     'name' => isset($taxonomy->label) ? $taxonomy->label : '',
                     'group' => __("Custom taxonomy", 'checkout-upsell-woocommerce'),
                     'handler' => new UWP_CT_Filter($slug),
@@ -47,7 +47,7 @@ class UWP_CT_Main
         include UWP_CT_PLUGIN_PATH . 'src/UWP_CT_Condition.php';
         if (class_exists('UWP_CT_Condition')) {
             foreach (self::getCustomTaxonomies() as $slug => $taxonomy) {
-                $conditions[$slug] = [
+                $conditions['tax_' . $slug] = [
                     'name' => isset($taxonomy->label) ? $taxonomy->label : '',
                     'group' => __("Custom taxonomy", 'checkout-upsell-woocommerce'),
                     'handler' => new UWP_CT_Condition($slug),
