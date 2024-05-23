@@ -101,13 +101,13 @@ class UWP_GH_Updater
                     $local_version = $transient->checked[$this->basename];
                     $out_of_date = version_compare($github_version, $local_version, 'gt'); // Check if we're out of date
                     if ($out_of_date) {
-                        $new_files = $this->github_response['zipball_url']; // Get the ZIP
+                        $download_url = $this->github_response['zipball_url']; // Get the ZIP
                         $slug = current(explode('/', $this->basename)); // Create valid slug
                         $plugin = array( // setup our plugin info
                             'url' => $this->plugin['PluginURI'],
                             'slug' => $slug,
-                            'package' => $new_files,
-                            'new_version' => ltrim($this->github_response['tag_name'], 'v'),
+                            'package' => $download_url,
+                            'new_version' => $github_version,
                         );
                         $transient->response[$this->basename] = (object)$plugin; // Return it in response
                     }
