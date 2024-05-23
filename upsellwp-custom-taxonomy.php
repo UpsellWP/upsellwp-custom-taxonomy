@@ -3,7 +3,7 @@
  * Plugin Name:          UpsellWP: Custom Taxonomy
  * Plugin URI:           https://upsellwp.com
  * Description:          Custom taxonomy addon.
- * Version:              0.0.2
+ * Version:              1.0.0
  * Requires at least:    5.3
  * Requires PHP:         7.0
  * Author:               UpsellWP
@@ -24,7 +24,7 @@ add_action('plugins_loaded', function () {
         'php' => '7.0',
         'wordpress' => '5.3',
         'woocommerce' => '4.4',
-        'upsellwp' => '2.1',
+        'upsellwp-pro' => '2.1',
     ];
     $plugin_name = 'UpsellWP: Custom Taxonomy';
 
