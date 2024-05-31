@@ -31,6 +31,8 @@ add_action('plugins_loaded', function () {
         add_filter('cuw_filters', [UWP_CT_Main::class, 'loadFilters']);
         add_filter('cuw_conditions', [UWP_CT_Main::class, 'loadConditions']);
     }
+    $i18n_path = dirname(plugin_basename(__FILE__)) . '/i18n/languages';
+    load_plugin_textdomain('upsellwp-custom-taxonomy', false, $i18n_path);
 });
 
 // run updater

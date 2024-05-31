@@ -36,7 +36,7 @@ class UWP_CT_Main
             foreach (self::getCustomTaxonomies() as $slug => $taxonomy) {
                 $filters['tax_' . $slug] = [
                     'name' => isset($taxonomy->label) ? $taxonomy->label : '',
-                    'group' => __("Custom taxonomy", 'checkout-upsell-woocommerce'),
+                    'group' => __("Custom taxonomy", 'upsellwp-custom-taxonomy'),
                     'handler' => new UWP_CT_Filter($slug),
                     'campaigns' => ['fbt', 'product_addons', 'cart_addons'],
                 ];
@@ -58,7 +58,7 @@ class UWP_CT_Main
             foreach (self::getCustomTaxonomies() as $slug => $taxonomy) {
                 $conditions['tax_' . $slug] = [
                     'name' => isset($taxonomy->label) ? $taxonomy->label : '',
-                    'group' => __("Custom taxonomy", 'checkout-upsell-woocommerce'),
+                    'group' => __("Custom taxonomy", 'upsellwp-custom-taxonomy'),
                     'handler' => new UWP_CT_Condition($slug),
                     'campaigns' => ['checkout_upsells', 'post_purchase', 'cart_upsells', 'double_order', 'noc', 'thankyou_upsells', 'upsell_popups', 'cart_addons'],
                 ];
