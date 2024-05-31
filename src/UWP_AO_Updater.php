@@ -1,11 +1,20 @@
 <?php
+/**
+ * UpsellWP: Custom taxonomy
+ *
+ * @package   upsellwp-custom-taxonomy
+ * @author    Team UpsellWP <team@upsellwp.com>
+ * @license   GPL-3.0-or-later
+ * @link      https://upsellwp.com
+ */
+
 defined('ABSPATH') || exit;
 
-if (class_exists('UWP_GH_Updater')) {
+if (class_exists('UWP_AO_Updater')) {
     return;
 }
 
-class UWP_GH_Updater
+class UWP_AO_Updater
 {
     /**
      * Properties.
