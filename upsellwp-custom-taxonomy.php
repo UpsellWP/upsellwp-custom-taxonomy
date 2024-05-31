@@ -2,12 +2,14 @@
 /**
  * Plugin Name:          UpsellWP: Custom Taxonomy
  * Plugin URI:           https://upsellwp.com/add-ons/custom-taxonomy
- * Description:          Custom taxonomy addon.
+ * Description:          Custom taxonomy addon. Helpful to load custom taxonomy filters and conditions.
  * Version:              1.0.0
  * Requires at least:    5.3
  * Requires PHP:         7.0
  * Author:               UpsellWP
  * Author URI:           https://upsellwp.com
+ * Text Domain:          upsellwp-custom-taxonomy
+ * Domain Path:          /i18n/languages
  * License:              GPL v3 or later
  * License URI:          https://www.gnu.org/licenses/gpl-3.0.html
  */
