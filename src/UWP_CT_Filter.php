@@ -1,4 +1,13 @@
 <?php
+/**
+ * UpsellWP: Custom taxonomy
+ *
+ * @package   upsellwp-custom-taxonomy
+ * @author    Team UpsellWP <team@upsellwp.com>
+ * @license   GPL-3.0-or-later
+ * @link      https://upsellwp.com
+ */
+
 defined('ABSPATH') || exit;
 
 if (class_exists('UWP_CT_Filter')) {
@@ -17,7 +26,7 @@ class UWP_CT_Filter extends \CUW\App\Modules\Filters\Base
      * @var string
      */
     public $custom_taxonomy = '';
-    
+
     /**
      * Constructor.
      *
