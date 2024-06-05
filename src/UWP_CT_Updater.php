@@ -10,11 +10,11 @@
 
 defined('ABSPATH') || exit;
 
-if (class_exists('UWP_AO_Updater')) {
+if (class_exists('UWP_CT_Updater')) {
     return;
 }
 
-class UWP_AO_Updater
+class UWP_CT_Updater
 {
     /**
      * Properties.

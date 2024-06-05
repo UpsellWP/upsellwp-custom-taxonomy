@@ -27,8 +27,8 @@ add_action('plugins_loaded', function () {
         'upsellwp-pro' => '2.1',
     ];
     $addon_name = 'UpsellWP: Custom Taxonomy';
-    include UWP_CT_PLUGIN_PATH . 'src/UWP_AO_Helper.php';
-    if (class_exists('UWP_AO_Helper') && UWP_AO_Helper::checkDependencies($requires, $addon_name)) {
+    include UWP_CT_PLUGIN_PATH . 'src/UWP_CT_Helper.php';
+    if (class_exists('UWP_CT_Helper') && UWP_CT_Helper::checkDependencies($requires, $addon_name)) {
         include UWP_CT_PLUGIN_PATH . 'src/UWP_CT_Main.php';
         add_filter('cuw_filters', [UWP_CT_Main::class, 'loadFilters']);
         add_filter('cuw_conditions', [UWP_CT_Main::class, 'loadConditions']);
@@ -39,8 +39,8 @@ add_action('plugins_loaded', function () {
 
 // run updater
 add_action('admin_init', function () {
-    include UWP_CT_PLUGIN_PATH . 'src/UWP_AO_Updater.php';
-    if (class_exists('UWP_AO_Updater')) {
-        new UWP_AO_Updater(__FILE__, 'upsellwp-custom-taxonomy');
+    include UWP_CT_PLUGIN_PATH . 'src/UWP_CT_Updater.php';
+    if (class_exists('UWP_CT_Updater')) {
+        new UWP_CT_Updater(__FILE__, 'upsellwp-custom-taxonomy');
     }
 });

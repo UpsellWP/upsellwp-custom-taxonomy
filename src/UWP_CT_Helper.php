@@ -10,11 +10,11 @@
 
 defined('ABSPATH') || exit;
 
-if (class_exists('UWP_AO_Helper')) {
+if (class_exists('UWP_CT_Helper')) {
     return;
 }
 
-class UWP_AO_Helper
+class UWP_CT_Helper
 {
     /**
      * Check depentencies.
