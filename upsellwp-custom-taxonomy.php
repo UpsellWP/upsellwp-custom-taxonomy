@@ -38,7 +38,9 @@ add_action('plugins_loaded', function () {
 });
 
 // run updater
-include UWP_CT_PLUGIN_PATH . 'src/UWP_AO_Updater.php';
-if (class_exists('UWP_AO_Updater')) {
-    new UWP_AO_Updater(__FILE__, 'upsellwp-custom-taxonomy');
-}
+add_action('admin_init', function () {
+    include UWP_CT_PLUGIN_PATH . 'src/UWP_AO_Updater.php';
+    if (class_exists('UWP_AO_Updater')) {
+        new UWP_AO_Updater(__FILE__, 'upsellwp-custom-taxonomy');
+    }
+});
