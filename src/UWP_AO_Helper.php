@@ -28,10 +28,10 @@ class UWP_AO_Helper
         if (class_exists('\CUW\App\Core') && method_exists('\CUW\App\Helpers\Plugin', 'getDependenciesError')) {
             $error_message = \CUW\App\Helpers\Plugin::getDependenciesError($requires, $addon_name);
         } else {
-            if (!empty($requires['upsellwp-pro'])) {
+            if (!empty($requires['upsellwp_pro'])) {
                 $upsellwp_name = 'UpsellWP PRO';
                 $upsellwp_url = 'https://upsellwp.com?utm_campaign=upsellwp_plugin&utm_source=upsellwp_free&utm_medium=upgrade';
-                $upsellwp_version = $requires['upsellwp-pro'];
+                $upsellwp_version = $requires['upsellwp_pro'];
             } else {
                 $upsellwp_name = 'UpsellWP';
                 $upsellwp_url = 'https://wordpress.org/plugins/checkout-upsell-and-order-bumps';
