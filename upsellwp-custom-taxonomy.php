@@ -24,7 +24,7 @@ add_action('plugins_loaded', function () {
         'php' => '7.0',
         'wordpress' => '5.3',
         'woocommerce' => '4.4',
-        'upsellwp-pro' => '2.1',
+        'upsellwp_pro' => '2.1',
     ];
     $addon_name = 'UpsellWP: Custom Taxonomy';
     include UWP_CT_PLUGIN_PATH . 'src/UWP_CT_Helper.php';
